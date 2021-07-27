@@ -39,6 +39,11 @@ Route::get('login/facebook/callback', [App\Http\Controllers\Auth\LoginController
 Route::get('login/twitter', [App\Http\Controllers\Auth\LoginController::class, 'redirectToTwitter'])->name('login.twitter');
 Route::get('login/twitter/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleTwitterCallback']);
 
-// login linkend
-Route::get('login/linkend', [App\Http\Controllers\Auth\LoginController::class, 'redirectToLinkend'])->name('login.linkend');
-Route::get('login/linkend/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleLinkendCallback']);
+// login linkedin
+Route::get('login/linkedin', [App\Http\Controllers\Auth\LoginController::class, 'redirectToLinkedin'])->name('login.linkedin');
+Route::get('login/linkedin/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleLinkedinCallback']);
+
+// login github
+Route::get('login/github', [App\Http\Controllers\Auth\LoginController::class, 'redirectToGithub'])->name('login.github');
+Route::get('login/github/callback', [App\Http\Controllers\Auth\LoginController::class, 'handleGithubCallback']);
+

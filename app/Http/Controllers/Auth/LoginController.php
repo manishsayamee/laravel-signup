@@ -44,26 +44,70 @@ class LoginController extends Controller
     public function redirectToGoogle()
      {
         return Socialite::driver('google')->redirect();
-        // $this->_registerOrloginUser($user);
-
-        // return redirect()->route('home');
+        
         }
 
+        // Google callback
+
+    public function handleGoogleCallback(){
+
+        $user = Socialite::driver('google')->user();
+        $this->_registerOrloginUser($user);
+        return redirect()->route('home');
+    }
+
+    
     public function redirectToFacebook()
     {
-        return Socialite::driver('facebook')->user();
+        return Socialite::driver('facebook')->redirect();
         }
 
+    public function handleFacebookCallback(){
+
+        $user = Socialite::driver('facebook')->user();
+        $this->_registerOrloginUser($user);
+        return redirect()->route('home');
+    }
+
+    
     public function redirectToTwitter()
         {
-            return Socialite::driver('twitter')->user();
+            return Socialite::driver('twitter')->redirect();
         }
 
+    
+        public function handleTwitterCallback(){
 
-    public function redirectToLinkend()
+        $user = Socialite::driver('twitter')->user();
+        $this->_registerOrloginUser($user);
+        return redirect()->route('home');
+    }
+
+    
+    public function redirectToGithub()
     {
-        return Socialite::driver('linkend')->user();
+
+        return Socialite::driver('github')->redirect();       
         }
+
+    public function handleGithubCallback(){
+        $user = Socialite::driver('github')->user();
+
+        $this->_registerOrloginUser($user);
+        return redirect()->route('home');
+    }
+    
+    public function redirectToLinkedin()
+    {
+
+        return Socialite::driver('linkedin')->redirect();       
+        }
+
+    public function handleLinkedinCallback(){
+        $user = Socialite::driver('linkedin')->user();
+        $this->_registerOrloginUser($user);
+        return redirect()->route('home');
+    }
 
 
     protected function _registerOrloginUser($data)
@@ -73,7 +117,7 @@ class LoginController extends Controller
             $user = new User();
             $user->name = $data->name;
             $user->email = $data->email;
-            $user->provider_id = $data->id;
+            $user->provider = $data->id;
             $user->avatar  = $data->avatar;
             $user->save();
 

@@ -42,14 +42,22 @@ return [
     'twitter' => [
         'client_id' => env('TWITTER_CLIENT_ID'),
         'client_secret' => env('TWITTER_CLIENT_SECRET'),
-                'redirect' => 'http://127.0.0.1:8000/login/twitter/callback',
+        'redirect' => 'http://127.0.0.1:8000/login/twitter/callback',
 
     ],
-    'linkend' => [
-        'client_id' => env('LINKEND_CLIENT_ID'),
-        'client_secret' => env('LINKEND_CLIENT_SECRET'),
-        'redirect' => 'http://127.0.0.1:8000/login/linkend/callback',
+    'linkedin' => [
+        'client_id' => env('LINKEDIN_CLIENT_ID'),
+        'client_secret' => env('LINKEDIN_CLIENT_SECRET'),
+        'redirect' => 'http://127.0.0.1:8000/login/linkedin/callback',
 
     ],
+    'github' => [
+        'client_id' => env('GITHUB_CLIENT_ID'),
+        'client_secret' => env('GITHUB_CLIENT_SECRET'),
+        'redirect' => 'http://127.0.0.1:8000/login/github/callback',
+
+    ],
+
+
 
 ];
